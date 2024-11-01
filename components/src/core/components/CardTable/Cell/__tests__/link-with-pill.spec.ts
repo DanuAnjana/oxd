@@ -153,7 +153,7 @@ describe('CardTable > Cell > LinkWithPill.vue', () => {
     });
 
     const link = wrapper.find('a');
-    const event = { preventDefault: jest.fn() };
+    const event = {preventDefault: jest.fn()};
 
     await link.trigger('click', event);
 

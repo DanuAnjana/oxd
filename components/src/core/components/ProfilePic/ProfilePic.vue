@@ -1,7 +1,12 @@
 <template>
   <div :class="classes">
     <slot>
-      <a v-if="link" :href="link" :target="linkMode" @click="handleLinkClick($event)">
+      <a
+        v-if="link"
+        :href="link"
+        :target="linkMode"
+        @click="handleLinkClick($event)"
+      >
         <span
           class="img-tag"
           :style="`background-image: url(${profileImage})`"
@@ -30,9 +35,7 @@ import {defaultUser} from './images';
 export default defineComponent({
   name: 'oxd-profile-pic',
 
-  emits: [
-    'linkClick',
-  ],
+  emits: ['linkClick'],
 
   props: {
     size: {
@@ -67,7 +70,7 @@ export default defineComponent({
   },
   methods: {
     handleLinkClick(event: MouseEvent | KeyboardEvent) {
-      if(this.isCustomFunctionExist) {
+      if (this.isCustomFunctionExist) {
         event.preventDefault();
         this.$emit('linkClick', event);
       }

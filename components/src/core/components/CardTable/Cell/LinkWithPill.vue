@@ -6,7 +6,12 @@
         <oxd-skeleton width="50%" animate></oxd-skeleton>
       </template>
       <template v-else>
-        <a :href="link ? row[link] : '#'" :target="target" :class="linkClasses" @click="handleLinkClick(row, $event)">
+        <a
+          :href="link ? row[link] : '#'"
+          :target="target"
+          :class="linkClasses"
+          @click="handleLinkClick(row, $event)"
+        >
           {{ cell }}
         </a>
         <div v-if="pillProperty" :class="pillClasses">

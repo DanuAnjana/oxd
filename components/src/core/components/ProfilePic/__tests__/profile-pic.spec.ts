@@ -51,5 +51,4 @@ describe('ProfilePic.vue', () => {
 
     expect(wrapper.emitted('linkClick')).toBeFalsy();
   });
-
 });

@@ -114,7 +114,7 @@ export default defineComponent({
       isLoading,
       profilePicture,
       handleLinkClick,
-      isCustomFunctionExist
+      isCustomFunctionExist,
     };
   },
 });

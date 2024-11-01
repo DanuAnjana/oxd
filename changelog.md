@@ -2,6 +2,8 @@
 
 2024-11-01 - b2384fef4dffc9f5ebd4009f24fba38ab1c76e01 - ProfilePicture.vue, ProfilePic.vue, profile-pic.spec.ts- add onclick event to prevent default behaviour of link and execute a function
 
+2024-11-01 - 5f4c5306a8ec4b497cb824fa673e50ac0162af4b - ProfilePicture.vue, ProfilePic.vue, profile-pic.spec.ts- add onclick event to prevent default behaviour of link and execute a function fix issue
+
 2024-11-01 - 891d531ac92cf7e3bcced8c018a7f7fd2efe6bb9 - Icons.ts - add external link icon
 
 2024-10-28 - e5840791366e3abbf3cb6b57f77ede4a8842fb79 - Icon/icons.ts - Add oxd-date-input, oxd-attachment-input,oxd-checkbox-input, oxd-checkbox-group-input, oxd-select-input, oxd-file-input, oxd-radio-input, oxd-radio-group-input, oxd-switch-input, oxd-time-input, oxd-text-input, oxd-password-input, oxd-circle-plus, oxd-textbox, oxd-text, oxd-divider, oxd-grid, oxd-grid-item, oxd-subform, oxd-masterdata, oxd-employee-autocomplete, oxd-status, oxd-required to OXD Icons

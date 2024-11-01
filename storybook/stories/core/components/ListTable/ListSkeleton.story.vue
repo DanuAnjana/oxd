@@ -157,7 +157,6 @@ export default {
       this.LinkPhillResult = 'Link with Pill with onClick function executed: ' + row.col2;
     },
     onClickProfilePic(row, event) {
-      console.log('Profile Pic with onClick function executed: ', row.col2);
       this.profilePicResult = 'Profile Pic with onClick function executed: ' + row.col2;
     },
   },

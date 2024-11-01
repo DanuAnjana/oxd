@@ -24,44 +24,32 @@ describe('ProfilePic.vue', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('should trigger handleLinkClick on link click', async () => {
-    const mockOnClick = jest.fn();
-    const rowItem = {
-      id: 1,
-      name: 'John Doe',
-    };
-
+  it('should emit linkClick with event payload on link click when isCustomFunctionExist is true', async () => {
     const wrapper = mount(ProfilePic, {
       props: {
         link: 'https://orangehrm.com',
-        rowItem: rowItem,
-        header: {
-          cellConfig: {
-            onClick: mockOnClick,
-          },
-        },
+        isCustomFunctionExist: true,
       },
     });
 
     const link = wrapper.find('a');
     await link.trigger('click');
 
-    expect(mockOnClick).toHaveBeenCalledWith(rowItem, expect.any(MouseEvent));
+    expect(wrapper.emitted('linkClick')).toBeTruthy();
   });
 
-  it('should not prevent default behavior if no onClick handler is present', async () => {
+  it('should not emit linkClick when isCustomFunctionExist is false', async () => {
     const wrapper = mount(ProfilePic, {
       props: {
         link: 'https://orangehrm.com',
+        isCustomFunctionExist: false,
       },
     });
 
     const link = wrapper.find('a');
-    const event = { preventDefault: jest.fn() };
+    await link.trigger('click');
 
-    await link.trigger('click', event);
-
-    expect(event.preventDefault).not.toHaveBeenCalled();
+    expect(wrapper.emitted('linkClick')).toBeFalsy();
   });
 
 });

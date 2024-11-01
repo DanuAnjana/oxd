@@ -29,6 +29,11 @@ import {
 import {defaultUser} from './images';
 export default defineComponent({
   name: 'oxd-profile-pic',
+
+  emits: [
+    'linkClick',
+  ],
+
   props: {
     size: {
       type: String,
@@ -55,21 +60,16 @@ export default defineComponent({
         return TARGETS.indexOf(value) !== -1;
       },
     },
-    header: {
-      type: Object,
-      default: () => ({}),
-    },
-    rowItem: {
-      type: Object,
-      default: () => ({}),
+    isCustomFunctionExist: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {
     handleLinkClick(event: MouseEvent | KeyboardEvent) {
-      const cellConfig = this.header?.cellConfig;
-      if (cellConfig && typeof cellConfig?.onClick === 'function') {
+      if(this.isCustomFunctionExist) {
         event.preventDefault();
-        this.header.cellConfig.onClick(this.rowItem, event);
+        this.$emit('linkClick', event);
       }
     },
   },

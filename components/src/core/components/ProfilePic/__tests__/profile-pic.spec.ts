@@ -24,31 +24,18 @@ describe('ProfilePic.vue', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('should emit linkClick with event payload on link click when isCustomFunctionExist is true', async () => {
+  it('should call linkHandler with event payload on link click when linkHandler is provided', async () => {
+    const mockLinkHandler = jest.fn();
     const wrapper = mount(ProfilePic, {
       props: {
         link: 'https://orangehrm.com',
-        isCustomFunctionExist: true,
+        linkHandler: mockLinkHandler,
       },
     });
 
     const link = wrapper.find('a');
     await link.trigger('click');
 
-    expect(wrapper.emitted('linkClick')).toBeTruthy();
-  });
-
-  it('should not emit linkClick when isCustomFunctionExist is false', async () => {
-    const wrapper = mount(ProfilePic, {
-      props: {
-        link: 'https://orangehrm.com',
-        isCustomFunctionExist: false,
-      },
-    });
-
-    const link = wrapper.find('a');
-    await link.trigger('click');
-
-    expect(wrapper.emitted('linkClick')).toBeFalsy();
+    expect(mockLinkHandler).toHaveBeenCalledWith(expect.any(MouseEvent));
   });
 });

@@ -63,16 +63,15 @@ export default defineComponent({
         return TARGETS.indexOf(value) !== -1;
       },
     },
-    isCustomFunctionExist: {
-      type: Boolean,
-      default: false,
+    linkHandler: {
+      type: Function,
+      required: false,
     },
   },
   methods: {
-    handleLinkClick(event: MouseEvent | KeyboardEvent) {
-      if (this.isCustomFunctionExist) {
-        event.preventDefault();
-        this.$emit('linkClick', event);
+    handleLinkClick(event: MouseEvent) {
+      if (this.linkHandler && typeof this.linkHandler === 'function') {
+        this.linkHandler(event);
       }
     },
   },

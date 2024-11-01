@@ -12,8 +12,7 @@
     :link="profilePicture.link"
     :imageSrc="profilePicture.src"
     :link-mode="profilePicture.target"
-    :isCustomFunctionExist="isCustomFunctionExist"
-    @linkClick="handleLinkClick"
+    :link-handler="handleLinkClick"
     v-bind="$attrs"
   />
 </template>
@@ -97,14 +96,13 @@ export default defineComponent({
 
     const isLoading = computed(() => props.loading || imgLoading.value);
 
-    const handleLinkClick = (event: MouseEvent | KeyboardEvent) => {
-      props.header?.cellConfig.onClick(props.rowItem, event);
-    };
-
-    const isCustomFunctionExist = computed(() => {
+    const handleLinkClick = (event: MouseEvent) => {
       const cellConfig = props.header?.cellConfig;
-      return cellConfig && typeof cellConfig?.onClick === 'function';
-    });
+      if (cellConfig && typeof cellConfig?.onClick === 'function') {
+        event.preventDefault();
+        props.header?.cellConfig.onClick(props.rowItem, event);
+      }
+    };
 
     watchEffect(async () => {
       imgSrc.value = await loadImage(props.item as string);
@@ -114,7 +112,6 @@ export default defineComponent({
       isLoading,
       profilePicture,
       handleLinkClick,
-      isCustomFunctionExist,
     };
   },
 });

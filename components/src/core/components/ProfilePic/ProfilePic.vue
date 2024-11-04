@@ -35,8 +35,6 @@ import {defaultUser} from './images';
 export default defineComponent({
   name: 'oxd-profile-pic',
 
-  emits: ['linkClick'],
-
   props: {
     size: {
       type: String,

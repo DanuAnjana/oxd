@@ -1,3 +1,5 @@
+2024-11-08 - cca468f6ad704248ff1de9f34672f3cf29d516e2 - CardTable/LinkWithPhil.vue  header pass as props
+
 2024-11-07 - 897c614bb977f6e559e717ad0a69a0bce5869183 - components/Tabs/Tabs.vue - Add tooltip to tab icon when title is absent
 
 2024-11-01 - d9cb67f8abf3c1128203f14bce687c8b5b4075a6 - Remove unnecessary separator between consecutive page numbers in OXD pagination

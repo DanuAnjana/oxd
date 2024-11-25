@@ -8,7 +8,7 @@
           @click="toggle"
           class="oxd-collapsible-caret-icon"
           size="xxx-small"
-          :flow="toolTipFlow"
+          :flow="tooltipFlow"
           :tooltip="isExpanded ? $vt('Show Less') : $vt('Show More')"
           v-if="collapsible"
         />
@@ -55,7 +55,7 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
-    toolTipFlow: {
+    tooltipFlow: {
       type: String,
       default: TOOLTIP_TOP,
       validator: (value: TooltipPosition) => {

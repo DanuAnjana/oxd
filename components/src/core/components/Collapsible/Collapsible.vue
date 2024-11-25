@@ -8,9 +8,9 @@
           @click="toggle"
           class="oxd-collapsible-caret-icon"
           size="xxx-small"
+          :flow="toolTipFlow"
           :tooltip="isExpanded ? $vt('Show Less') : $vt('Show More')"
           v-if="collapsible"
-          :flow="toolTipFlow"
         />
       </div>
     </div>
@@ -30,6 +30,11 @@
 import {defineComponent} from 'vue';
 import oxdIconButton from '@orangehrm/oxd/core/components/Button/Icon.vue';
 import translateMixin from '../../../mixins/translate';
+import {
+  TooltipPosition,
+  TOOLTIP_TOP,
+  TOOLTIP_POSITIONS,
+} from '../Button/types';
 
 export default defineComponent({
   name: 'CollapsibleComponent',
@@ -52,7 +57,10 @@ export default defineComponent({
     },
     toolTipFlow: {
       type: String,
-      default: 'top',
+      default: TOOLTIP_TOP,
+      validator: (value: TooltipPosition) => {
+        return TOOLTIP_POSITIONS.indexOf(value) !== 1;
+      },
     },
   },
   data() {

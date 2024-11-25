@@ -10,6 +10,7 @@
           size="xxx-small"
           :tooltip="isExpanded ? $vt('Show Less') : $vt('Show More')"
           v-if="collapsible"
+          :flow="toolTipFlow"
         />
       </div>
     </div>
@@ -48,6 +49,10 @@ export default defineComponent({
     collapsible: {
       type: Boolean,
       default: true,
+    },
+    toolTipFlow: {
+      type: String,
+      default: 'top',
     },
   },
   data() {
